@@ -17,13 +17,13 @@ const BurgersList: FC = () => {
 
     return (
         <div>
-            <h1>Список Пользователей</h1>
-            {dataUsers.burgers}
-            {/*{users.map(user =>*/}
-            {/*    <div key={user.id}>*/}
-            {/*        <div>{user.name}</div>*/}
-            {/*    </div>*/}
-            {/*)}*/}
+            <h1>Список Бургеров</h1>
+
+            {dataUsers.burgers.map(user =>
+                <div key={user.id}>
+                    <div>{user.name}</div>
+                </div>
+            )}
         </div>
     );
 };

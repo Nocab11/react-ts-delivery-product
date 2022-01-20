@@ -27,7 +27,7 @@ interface FetchBurgerErrorsAction {
 
 export type BurgerAction = FetchBurgerAction | FetchBurgerSuccessAction | FetchBurgerErrorsAction
 
-const initialState = {
+const initialState: BurgerState = {
     burgers: [],
     loading: false,
     error: null
