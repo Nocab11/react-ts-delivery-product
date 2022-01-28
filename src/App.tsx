@@ -1,14 +1,15 @@
 import React from 'react';
-import UserList from "./components/UserList";
-import BurgersList from "./components/BurgersList";
-import NavBar from "./components/NavBar";
+import "./reset.css";
+import ProductList from "./components/ProductList/ProductList";
+import NavBar from "./components/NavBar/NavBar";
+import ModalItem from "./components/Modal/ModalItem";
 
 const App = () => {
     return (
         <div>
             <NavBar />
-            <UserList />
-            <BurgersList />
+            <ProductList />
+            <ModalItem />
         </div>
     );
 };

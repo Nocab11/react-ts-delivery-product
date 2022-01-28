@@ -1,0 +1,27 @@
+.container {
+    width: 100%;
+    display: flex;
+}
+.wrap-fixed {
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+}
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 400px;
+    margin-top: 64px;
+}
+.product__description {
+    height: 103px;
+    overflow: hidden;
+}
+.basket {
+    width: 400px;
+    height: 100vh;
+    border: 1px solid black;
+    position: fixed;
+    top: 64px;
+    right: 0;
+}
