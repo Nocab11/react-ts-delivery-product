@@ -1,38 +1,20 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect} from 'react';
 import {fetchProduct} from "../../redux/action-creators/product";
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {Card, CardActionArea, CardMedia, CardContent, Typography, Grid, Box, CardActions, Button} from "@mui/material";
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import {Card, CardActionArea, CardMedia, CardContent, Typography, Grid, Box} from "@mui/material";
 import "./product.css"
 import {ProductActionTypes} from "../../redux/reducers/productReducer";
 
 const ProductList: FC = () => {
 
-    const [burger, setBurger] = useState({})
-    console.log('setBurger', burger)
     const dispatch = useDispatch()
 
     const {products} = useTypedSelector(state => state.products)
-    const getProduct = useTypedSelector(state => state.products)
-    console.log('getProduct', getProduct)
 
     useEffect(() => {
         dispatch(fetchProduct())
     }, [])
-
-    const Item = styled(Paper)(({ theme }) => ({
-        ...theme.typography.body2,
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    }));
-
-    const getCardBurger = (burger:object) => {
-        setBurger(burger)
-
-    }
 
     return (
         <Grid sx={{ display: 'flex'}}>
@@ -59,7 +41,6 @@ const ProductList: FC = () => {
                                 <div>click</div>
                             </CardContent>
                         </CardActionArea>
-
                     </Card>
                 )}
             </Box>

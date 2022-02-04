@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useDispatch} from "react-redux";
 import {ProductActionTypes} from "../../redux/reducers/productReducer";
@@ -19,39 +19,42 @@ const style = {
     p: 4,
 };
 
-
 const ModalItem: FC = () => {
 
     const dispatch = useDispatch();
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [totalCount, setTotalCount] = useState(0)
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>, num: number) => {
+        let checked = event.target.checked;
+        if (checked) {
+            setTotalCount(prev => prev + num)
+        } else {
+            setTotalCount(prev => prev - num)
+        }
+    };
+
+    const obj = useTypedSelector(state => state.products)
 
     interface ProductItem {
         id?: number,
         name?: string,
         description?: string,
         img?: string,
-        price?: number,
+        price?: number | 0,
         ingredients?: any[]
     }
 
-    const obj = useTypedSelector(state => state.products)
+    const product: ProductItem = obj.product
 
-    const product:ProductItem = obj.product
 
+    const totalPrice = () => {
+        return product.price && product.price + totalCount
+    }
 
     return (
-        <div>
-            {obj.modal &&
-            <div style={{background: 'red', width: 300, height: 300}}
-                 onClick={() => dispatch({type: ProductActionTypes.CLOSE_MODAL, payload: false})}>
-                {product.id}
-            </div>
-            }
-
-            <Button onClick={handleOpen}>Open modal</Button>
+        <>
+            <Button>Open modal</Button>
             <Modal
                 open={obj.modal}
                 onClose={() => dispatch({type: ProductActionTypes.CLOSE_MODAL, payload: false})}
@@ -60,14 +63,33 @@ const ModalItem: FC = () => {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {product.id}
+                        <img src={product.img} alt=""/>
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{mt: 2}} variant="h6">
+                        {product.name}
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{mt: 2}} variant="body2">
+                        {product.description}
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{mt: 2}} variant="body2">
+                        {product.ingredients?.map((el, index) =>
+                            <span key={index}>
+                                <label htmlFor={el.name}>{el.name} {el.value}</label>
+                                <input type="checkbox"
+                                       name={el.name}
+                                       id={el.name}
+                                       onChange={(event) => handleChange(event, el.value)}
+                                />
+                            </span>
+                        )}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{mt: 2}}>
-                        {product.id}
+                        Цена: {totalPrice()}  &#8381;
                     </Typography>
+                    <Button variant="contained">Добавить в корзину</Button>
                 </Box>
             </Modal>
-        </div>
+        </>
     );
 };
 
