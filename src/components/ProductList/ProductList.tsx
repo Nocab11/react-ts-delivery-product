@@ -5,6 +5,7 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {Card, CardActionArea, CardMedia, CardContent, Typography, Grid, Box} from "@mui/material";
 import "./product.css"
 import {ProductActionTypes} from "../../redux/reducers/productReducer";
+import Basket from "../Basket/Basket";
 
 const ProductList: FC = () => {
 
@@ -15,6 +16,9 @@ const ProductList: FC = () => {
     useEffect(() => {
         dispatch(fetchProduct())
     }, [])
+
+
+
 
     return (
         <Grid sx={{ display: 'flex'}}>
@@ -44,9 +48,7 @@ const ProductList: FC = () => {
                     </Card>
                 )}
             </Box>
-            <Box className="basket">
-                коризна пуста
-            </Box>
+            <Basket />
         </Grid>
     );
 };

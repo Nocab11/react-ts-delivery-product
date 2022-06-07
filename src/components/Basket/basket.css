@@ -1,0 +1,39 @@
+.basket {
+    padding-top: 30px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.basket-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.basket-box {
+    width: 100%;
+    padding: 20px 0;
+}
+.basket-box__descriptions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid #b8b8b8;
+    padding: 20px 10px;
+}
+.basket-box__img {
+    width: 70px;
+}
+.basket-box__head {
+    width: 70%;
+    padding-left: 15px;
+}
+.basket-box__price {
+    font-weight: bold;
+    padding-left: 15px;
+}
+.basket-counter {
+    padding: 20px 10px;
+}

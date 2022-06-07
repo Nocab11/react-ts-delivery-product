@@ -23,10 +23,13 @@ const ModalItem: FC = () => {
 
     const dispatch = useDispatch();
 
-    const [totalCount, setTotalCount] = useState(0)
+    const obj = useTypedSelector(state => state.products)
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>, num: number) => {
+    const [totalCount, setTotalCount] = useState(obj.total)
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>, num: number, str: string) => {
         let checked = event.target.checked;
+        console.log(str)
         if (checked) {
             setTotalCount(prev => prev + num)
         } else {
@@ -34,7 +37,7 @@ const ModalItem: FC = () => {
         }
     };
 
-    const obj = useTypedSelector(state => state.products)
+
 
     interface ProductItem {
         id?: number,
@@ -48,9 +51,34 @@ const ModalItem: FC = () => {
     const product: ProductItem = obj.product
 
 
+    const [num, setNum] = useState(0)
+
     const totalPrice = () => {
-        return product.price && product.price + totalCount
+        let count = product.price
+        // console.log('obj.modal',obj.modal)
+        // if (obj.modal) {
+        //     count = product.price && product.price + totalCount
+        //     setNum(totalCount)
+        // } else {
+        //     setNum(0)
+        // }
+        // return product.price && product.price + totalCount
     }
+
+    const [base, setBase] = useState({})
+
+    const addDataBasket = () => {
+        setBase({...base, ...product})
+        dispatch({
+            type: ProductActionTypes.SET_BASKET,
+            payload: {
+                ...product,
+                count: 1
+            }
+        })
+    }
+
+    console.log('base', base)
 
     return (
         <>
@@ -78,7 +106,7 @@ const ModalItem: FC = () => {
                                 <input type="checkbox"
                                        name={el.name}
                                        id={el.name}
-                                       onChange={(event) => handleChange(event, el.value)}
+                                       onChange={(event) => handleChange(event, el.value, el.name)}
                                 />
                             </span>
                         )}
@@ -86,7 +114,7 @@ const ModalItem: FC = () => {
                     <Typography id="modal-modal-description" sx={{mt: 2}}>
                         Цена: {totalPrice()}  &#8381;
                     </Typography>
-                    <Button variant="contained">Добавить в корзину</Button>
+                    <Button variant="contained" onClick={addDataBasket}>Добавить в корзину</Button>
                 </Box>
             </Modal>
         </>
