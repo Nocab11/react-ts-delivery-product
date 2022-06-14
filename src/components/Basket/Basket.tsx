@@ -1,7 +1,13 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {Box} from "@mui/material";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import "./basket.css"
+import Button from "@mui/material/Button";
+
+// @ts-ignore
+import decreases from "../../assets/icon/decrease.svg";
+// @ts-ignore
+import increases from "../../assets/icon/increase.svg";
 
 const Basket:FC = () => {
 
@@ -38,25 +44,55 @@ const Basket:FC = () => {
         }))]);
     }
 
+    const deletedItem = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+        setResults([...results.filter((el, i) => id !== i)]);
+    }
+
+    const totalPrice = useMemo(() => {
+        return results.reduce((acc, route) => acc + route.priceEnd, 0)
+    }, [results])
+
+    console.log(totalPrice, 'totalPrice')
+
+    console.log('results', results)
+
     return (
         <>
             <Box className="basket">
-                <h3 className="basket-head">Корзина заказов</h3>
-                {results.reduce((r, i) =>
-                        !r.some((j: any) => !Object.keys(i).some(k => i[k] !== j[k])) ? [...r, i] : r
-                    , []).map((el: any) =>
-                    <div key={el.id} className="basket-box">
-                        <div className="basket-box__descriptions">
-                            <img src={el.img} alt="" className="basket-box__img" />
-                            <h5 className="basket-box__head">{el.name}</h5>
-                            <span className="basket-box__price">{el.priceEnd}&#8381;</span>
+                {results.length ? (
+                    <>
+                        <h3 className="basket-head">Корзина заказов</h3>
+                        <div className="basket-content">
+                            {results.reduce((r, i) =>
+                                    !r.some((j: any) => !Object.keys(i).some(k => i[k] !== j[k])) ? [...r, i] : r
+                                , []).map((el: any, index: number) =>
+                                <div key={index} className="basket-box">
+                                    <div className="basket-box__descriptions">
+                                        <img src={el.img} alt="" className="basket-box__img" />
+                                        <h5 className="basket-box__head">{el.name}</h5>
+                                        <span className="basket-box__price">{el.priceEnd}&#8381;</span>
+                                    </div>
+                                    <div className="basket-counter">
+                                        <button className="decrease" onClick={(e) => decrease(e, el.count, el.id, el.priceStart)}>
+                                            <img src={decreases} alt=""/>
+                                        </button>
+                                        <span className="count">{el.count}</span>
+                                        <button className="increase" onClick={(e) => increase(e, el.count, el.id, el.priceStart)}>
+                                            <img src={increases} alt=""/>
+                                        </button>
+                                    </div>
+                                    <div className="basket-deleted">
+                                        <Button variant="outlined" color="error" onClick={(e => deletedItem(e, index))}>
+                                            Удалить товар
+                                        </Button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                        <div className="basket-counter">
-                            <button onClick={(e) => decrease(e, el.count, el.id, el.priceStart)}>-</button>
-                            <span>{el.count}</span>
-                            <button onClick={(e) => increase(e, el.count, el.id, el.priceStart)}>+</button>
-                        </div>
-                    </div>
+                        <Button variant="contained" className="basket-btn">Заказать {totalPrice} &#8381;</Button>
+                    </>
+                ) : (
+                    <h3 className="basket-head">Корзина заказов Пуста</h3>
                 )}
             </Box>
         </>

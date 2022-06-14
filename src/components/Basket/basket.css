@@ -4,7 +4,7 @@
     align-items: flex-start;
     flex-direction: column;
     width: 400px;
-    height: 100vh;
+    height: calc(100% - 94px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
     position: fixed;
     top: 64px;
@@ -17,6 +17,10 @@
     justify-content: center;
     font-size: 32px;
     font-weight: bold;
+}
+.basket-content {
+    flex-grow: 1;
+    width: 100%;
 }
 .basket-box {
     width: 100%;
@@ -42,4 +46,11 @@
 }
 .basket-counter {
     padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.basket .basket-btn {
+    width: 100%;
+    padding: 20px 0;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import "./reset.css";
+import "./styles/reset.css";
+import "./styles/main.css";
 import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
 import ModalItem from "./components/Modal/ModalItem";

@@ -22,7 +22,7 @@ const ProductList: FC = () => {
 
 
     return (
-        <Grid sx={{ display: 'flex'}}>
+        <Grid>
             <Box className="product">
                 {products.map(product =>
                     <Card sx={{ maxWidth: 320, margin: '0 15px 15px 0' }} key={product.id} onClick={() => dispatch({type: ProductActionTypes.GET_PRODUCT, payload: product})}>
@@ -41,7 +41,7 @@ const ProductList: FC = () => {
                                     {product.description}
                                 </Typography>
                                 <Typography variant="body2">
-                                    {product.priceStart} &#8381;
+                                    {product.priceEnd} &#8381;
                                 </Typography>
                                 <Button variant="contained">Добавить в корзину</Button>
                             </CardContent>
