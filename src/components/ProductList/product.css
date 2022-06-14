@@ -17,11 +17,3 @@
     height: 103px;
     overflow: hidden;
 }
-.basket {
-    width: 400px;
-    height: 100vh;
-    border: 1px solid black;
-    position: fixed;
-    top: 64px;
-    right: 0;
-}

@@ -6,6 +6,7 @@ import {Card, CardActionArea, CardMedia, CardContent, Typography, Grid, Box} fro
 import "./product.css"
 import {ProductActionTypes} from "../../redux/reducers/productReducer";
 import Basket from "../Basket/Basket";
+import Button from "@mui/material/Button";
 
 const ProductList: FC = () => {
 
@@ -40,9 +41,9 @@ const ProductList: FC = () => {
                                     {product.description}
                                 </Typography>
                                 <Typography variant="body2">
-                                    {product.price} &#8381;
+                                    {product.priceStart} &#8381;
                                 </Typography>
-                                <div>click</div>
+                                <Button variant="contained">Добавить в корзину</Button>
                             </CardContent>
                         </CardActionArea>
                     </Card>

@@ -44,7 +44,7 @@ const ModalItem: FC = () => {
         name?: string,
         description?: string,
         img?: string,
-        price?: number | 0,
+        priceStart?: number | 0,
         ingredients?: any[]
     }
 
@@ -53,17 +53,7 @@ const ModalItem: FC = () => {
 
     const [num, setNum] = useState(0)
 
-    const totalPrice = () => {
-        let count = product.price
-        // console.log('obj.modal',obj.modal)
-        // if (obj.modal) {
-        //     count = product.price && product.price + totalCount
-        //     setNum(totalCount)
-        // } else {
-        //     setNum(0)
-        // }
-        // return product.price && product.price + totalCount
-    }
+
 
     const [base, setBase] = useState({})
 
@@ -112,7 +102,7 @@ const ModalItem: FC = () => {
                         )}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{mt: 2}}>
-                        Цена: {totalPrice()}  &#8381;
+                        Цена: {product.priceStart}  &#8381;
                     </Typography>
                     <Button variant="contained" onClick={addDataBasket}>Добавить в корзину</Button>
                 </Box>
