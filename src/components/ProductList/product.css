@@ -16,7 +16,28 @@
     margin-top: 103px;
     padding: 0 20px;
 }
+.card {
+    position: relative;
+}
+.card:hover .product-content {
+    position: absolute;
+    bottom: 57px;
+    right: 0;
+    padding: 10px 20px;
+    background: #fff;
+    display: block;
+}
+.product-name {
+    height: 100px;
+    overflow: hidden;
+}
+.product-content {
+    display: none;
+}
 .product__description {
     height: 103px;
     overflow: hidden;
+}
+.product-btn {
+    width: 100%;
 }

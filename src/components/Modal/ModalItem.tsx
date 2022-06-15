@@ -66,13 +66,16 @@ const ModalItem: FC = () => {
                 count: 1
             }
         })
+        dispatch({
+            type: ProductActionTypes.CLOSE_MODAL,
+            payload: false
+        })
     }
 
     console.log('base', base)
 
     return (
         <>
-            <Button>Open modal</Button>
             <Modal
                 open={obj.modal}
                 onClose={() => dispatch({type: ProductActionTypes.CLOSE_MODAL, payload: false})}

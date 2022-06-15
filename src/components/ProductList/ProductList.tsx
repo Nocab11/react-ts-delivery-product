@@ -18,14 +18,15 @@ const ProductList: FC = () => {
         dispatch(fetchProduct())
     }, [])
 
-
-
-
     return (
         <Grid>
             <Box className="product">
                 {products.map(product =>
-                    <Card sx={{ maxWidth: 320, margin: '0 15px 15px 0' }} key={product.id} onClick={() => dispatch({type: ProductActionTypes.GET_PRODUCT, payload: product})}>
+                    <Card sx={{ maxWidth: 320, margin: '0 15px 15px 0' }}
+                          key={product.id}
+                          onClick={() => dispatch({type: ProductActionTypes.GET_PRODUCT, payload: product})}
+                          className="card"
+                    >
                         <CardActionArea>
                             <CardMedia
                                 component="img"
@@ -34,16 +35,18 @@ const ProductList: FC = () => {
                                 alt="green iguana"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h6" component="div">
+                                <Typography gutterBottom variant="h6" component="div" className="product-name">
                                     {product.name}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary" className="product__description">
-                                    {product.description}
-                                </Typography>
-                                <Typography variant="body2">
-                                    {product.priceEnd} &#8381;
-                                </Typography>
-                                <Button variant="contained">Добавить в корзину</Button>
+                                <div className="product-content">
+                                    <Typography variant="body2" color="text.secondary" className="product__description">
+                                        {product.description}
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        {product.priceEnd} &#8381;
+                                    </Typography>
+                                </div>
+                                    <Button variant="contained" className="product-btn">Добавить в корзину</Button>
                             </CardContent>
                         </CardActionArea>
                     </Card>

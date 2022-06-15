@@ -135,6 +135,28 @@ const dbMenu2 = {
                 }
             ]
         },
+        {
+            "id": 3,
+            "name": "Лапша № 3",
+            "description": "В устричном соусе или ароматном соусе том ям",
+            "img": "/menu/img-id1.jpg",
+            "priceStart": 800,
+            "priceEnd": 800,
+            "ingredients": [
+                {
+                    "name": "Жареный лук",
+                    "value": 80
+                },
+                {
+                    "name": "Острый Соус",
+                    "value": 500
+                },
+                {
+                    "name": "Брокколи",
+                    "value": 10
+                }
+            ]
+        }
     ],
     beverages: [
         {
