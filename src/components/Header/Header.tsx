@@ -1,8 +1,9 @@
 import React from 'react';
-import "./NavBar.css"
-import {AppBar, Box, Button, IconButton, Toolbar, Typography} from "@mui/material";
+import {Link} from "react-router-dom";
+import "./Header.css"
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 
-const NavBar = () => {
+const Header = () => {
     return (
         <AppBar className="header" position="fixed">
             <Toolbar>
@@ -15,12 +16,12 @@ const NavBar = () => {
                 >
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    News
+                    <Link to="/">Главная</Link>
                 </Typography>
-                <Button color="inherit">Login</Button>
+                <Button color="inherit">Войти</Button>
             </Toolbar>
         </AppBar>
     );
 };
 
-export default NavBar;
+export default Header;

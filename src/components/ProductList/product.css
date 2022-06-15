@@ -1,6 +1,5 @@
 .container {
     width: 100%;
-    display: flex;
 }
 .wrap-fixed {
     width: 300px;

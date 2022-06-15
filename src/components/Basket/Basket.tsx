@@ -3,7 +3,7 @@ import {Box} from "@mui/material";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import "./basket.css"
 import Button from "@mui/material/Button";
-
+import {Link} from "react-router-dom";
 // @ts-ignore
 import decreases from "../../assets/icon/decrease.svg";
 // @ts-ignore
@@ -89,7 +89,7 @@ const Basket:FC = () => {
                                 </div>
                             )}
                         </div>
-                        <Button variant="contained" className="basket-btn">Заказать {totalPrice} &#8381;</Button>
+                        <Link to="/order" className="basket-btn">Заказать {totalPrice} &#8381;</Link>
                     </>
                 ) : (
                     <h3 className="basket-head">Корзина заказов Пуста</h3>

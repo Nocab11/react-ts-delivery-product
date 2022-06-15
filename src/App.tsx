@@ -1,17 +1,23 @@
 import React from 'react';
+import {Routes, Route} from "react-router-dom"
 import "./styles/reset.css";
 import "./styles/main.css";
-import ProductList from "./components/ProductList/ProductList";
-import NavBar from "./components/NavBar/NavBar";
-import ModalItem from "./components/Modal/ModalItem";
+
+import Layout from "./pages/Layout/Layout";
+import Home from "./pages/Home/Home";
+import Order from "./pages/Order/Order";
 
 const App = () => {
     return (
-        <div>
-            <NavBar />
-            <ProductList />
-            <ModalItem />
-        </div>
+        <>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="/order" element={<Order />} />
+                </Route>
+            </Routes>
+
+        </>
     );
 };
 

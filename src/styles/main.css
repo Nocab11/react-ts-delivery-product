@@ -1,3 +1,23 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+main {
+    flex-grow: 1;
+    margin-top: 100px;
+}
+main.catalog {
+    margin-top: 0;
+}
+footer.catalog {
+    margin-right: 400px;
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #1976d2;
+}
 .count {
     margin: 0 7px;
 }
