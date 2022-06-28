@@ -46,7 +46,7 @@ const ProductList: FC = () => {
                                         {product.priceEnd} &#8381;
                                     </Typography>
                                 </div>
-                                    <Button variant="contained" className="product-btn">Добавить в корзину</Button>
+                                    <span className="product-btn">Добавить в корзину</span>
                             </CardContent>
                         </CardActionArea>
                     </Card>

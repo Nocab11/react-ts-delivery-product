@@ -1,5 +1,3 @@
-
-
 interface ProductState {
     products: any[];
     product: object;

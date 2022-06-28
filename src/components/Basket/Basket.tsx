@@ -25,7 +25,7 @@ const Basket:FC = () => {
     }, [basket])
 
     const increase = (e: React.MouseEvent<HTMLButtonElement>, num: number, index: number, cost: number) => {
-        console.log('increase')
+
         setResults([...results.map((el: any) => ({
             ...el,
             count: el.id === index ? num + 1 : el.count,
@@ -34,9 +34,7 @@ const Basket:FC = () => {
     }
 
     const decrease = (e: React.MouseEvent<HTMLButtonElement>, num: number, index: number, cost: number) => {
-        console.log('decrease')
 
-        console.log('results', results)
         setResults([...results.map((el: any) => ({
             ...el,
             count: (el.id === index && el.count !== 1) ? num - 1 : el.count,
@@ -51,8 +49,6 @@ const Basket:FC = () => {
     const totalPrice = useMemo(() => {
         return results.reduce((acc, route) => acc + route.priceEnd, 0)
     }, [results])
-
-    console.log(totalPrice, 'totalPrice')
 
     console.log('results', results)
 

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useDispatch} from "react-redux";
 import {ProductActionTypes} from "../../redux/reducers/productReducer";
@@ -19,50 +19,65 @@ const style = {
     p: 4,
 };
 
-const ModalItem: FC = () => {
+interface ModalItemProps {
+    id?: number,
+    name?: string,
+    description?: string,
+    img?: string,
+    priceStart?: number | 0,
+    priceEnd?: number | 0,
+    ingredients?: any[]
+}
+
+const ModalItem: FC<ModalItemProps> = () => {
 
     const dispatch = useDispatch();
 
+    const {product}: any = useTypedSelector(state => state.products)
+
     const obj = useTypedSelector(state => state.products)
 
-    const [totalCount, setTotalCount] = useState(obj.total)
+    const [totalCount, setTotalCount] = useState<number>(product.priceStart)
+
+    const [base, setBase] = useState<ModalItemProps>({})
+
+
+
+    useEffect(() => {
+        setBase({
+            ...product,
+
+        })
+        setTotalCount(product.priceStart)
+    }, [product])
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>, num: number, str: string) => {
+
         let checked = event.target.checked;
-        console.log(str)
         if (checked) {
-            setTotalCount(prev => prev + num)
+            setTotalCount(totalCount + num)
         } else {
-            setTotalCount(prev => prev - num)
+            setTotalCount(totalCount - num)
         }
+        setBase({
+            ...base,
+            ingredients: base?.ingredients?.map((element:any) => ({
+                ...element,
+                checked: element.name === str ? event.target.checked : element.checked
+            })),
+            priceEnd: checked ? totalCount + num : totalCount - num
+        })
     };
 
-
-
-    interface ProductItem {
-        id?: number,
-        name?: string,
-        description?: string,
-        img?: string,
-        priceStart?: number | 0,
-        ingredients?: any[]
-    }
-
-    const product: ProductItem = obj.product
-
-
-    const [num, setNum] = useState(0)
-
-
-
-    const [base, setBase] = useState({})
+    console.log('totalCount', totalCount)
 
     const addDataBasket = () => {
         setBase({...base, ...product})
         dispatch({
             type: ProductActionTypes.SET_BASKET,
             payload: {
-                ...product,
+                ...base,
                 count: 1
             }
         })
@@ -70,9 +85,10 @@ const ModalItem: FC = () => {
             type: ProductActionTypes.CLOSE_MODAL,
             payload: false
         })
+        setTotalCount(product.priceStart)
     }
 
-    console.log('base', base)
+    console.log('basebase', base)
 
     return (
         <>
@@ -93,7 +109,7 @@ const ModalItem: FC = () => {
                         {product.description}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{mt: 2}} variant="body2">
-                        {product.ingredients?.map((el, index) =>
+                        {product.ingredients?.map((el: any, index: number) =>
                             <span key={index}>
                                 <label htmlFor={el.name}>{el.name} {el.value}</label>
                                 <input type="checkbox"
@@ -105,7 +121,7 @@ const ModalItem: FC = () => {
                         )}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{mt: 2}}>
-                        Цена: {product.priceStart}  &#8381;
+                        Цена: {totalCount}  &#8381;
                     </Typography>
                     <Button variant="contained" onClick={addDataBasket}>Добавить в корзину</Button>
                 </Box>
