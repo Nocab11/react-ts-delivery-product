@@ -44,12 +44,13 @@ const ModalItem: FC<ModalItemProps> = () => {
 
 
     useEffect(() => {
+        console.log('сработал юс эффект')
         setBase({
             ...product,
-
+            ingredients: product?.ingredients?.map((ingredient: any) => ({...ingredient, checked: false}))
         })
         setTotalCount(product.priceStart)
-    }, [product])
+    }, [product, obj.modal])
 
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>, num: number, str: string) => {
