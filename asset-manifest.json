@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react324324-432432-4/static/css/main.382ab306.css",
-    "main.js": "/react324324-432432-4/static/js/main.767696da.js",
-    "index.html": "/react324324-432432-4/index.html",
-    "static/media/increase.svg": "/react324324-432432-4/static/media/increase.402b161397f8690d3d6c7a6fb788608c.svg",
-    "static/media/decrease.svg": "/react324324-432432-4/static/media/decrease.cbf1b2f21ceb03630d56168b208bfab4.svg",
-    "main.382ab306.css.map": "/react324324-432432-4/static/css/main.382ab306.css.map",
-    "main.767696da.js.map": "/react324324-432432-4/static/js/main.767696da.js.map"
+    "main.css": "/static/css/main.382ab306.css",
+    "main.js": "/static/js/main.d0fdf0a3.js",
+    "index.html": "/index.html",
+    "static/media/increase.svg": "/static/media/increase.402b161397f8690d3d6c7a6fb788608c.svg",
+    "static/media/decrease.svg": "/static/media/decrease.cbf1b2f21ceb03630d56168b208bfab4.svg",
+    "main.382ab306.css.map": "/static/css/main.382ab306.css.map",
+    "main.d0fdf0a3.js.map": "/static/js/main.d0fdf0a3.js.map"
   },
   "entrypoints": [
     "static/css/main.382ab306.css",
-    "static/js/main.767696da.js"
+    "static/js/main.d0fdf0a3.js"
   ]
 }
