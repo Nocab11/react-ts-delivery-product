@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "http://localhost:3000/static/css/main.382ab306.css",
-    "main.js": "http://localhost:3000/static/js/main.e0a8b0de.js",
-    "index.html": "http://localhost:3000/index.html",
-    "static/media/increase.svg": "http://localhost:3000/static/media/increase.402b161397f8690d3d6c7a6fb788608c.svg",
-    "static/media/decrease.svg": "http://localhost:3000/static/media/decrease.cbf1b2f21ceb03630d56168b208bfab4.svg",
-    "main.382ab306.css.map": "http://localhost:3000/static/css/main.382ab306.css.map",
-    "main.e0a8b0de.js.map": "http://localhost:3000/static/js/main.e0a8b0de.js.map"
+    "main.css": "https://nocab11.github.io/react-ts-delivery-product/static/css/main.382ab306.css",
+    "main.js": "https://nocab11.github.io/react-ts-delivery-product/static/js/main.a00089cf.js",
+    "index.html": "https://nocab11.github.io/react-ts-delivery-product/index.html",
+    "static/media/increase.svg": "https://nocab11.github.io/react-ts-delivery-product/static/media/increase.402b161397f8690d3d6c7a6fb788608c.svg",
+    "static/media/decrease.svg": "https://nocab11.github.io/react-ts-delivery-product/static/media/decrease.cbf1b2f21ceb03630d56168b208bfab4.svg",
+    "main.382ab306.css.map": "https://nocab11.github.io/react-ts-delivery-product/static/css/main.382ab306.css.map",
+    "main.a00089cf.js.map": "https://nocab11.github.io/react-ts-delivery-product/static/js/main.a00089cf.js.map"
   },
   "entrypoints": [
     "static/css/main.382ab306.css",
-    "static/js/main.e0a8b0de.js"
+    "static/js/main.a00089cf.js"
   ]
 }
