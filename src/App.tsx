@@ -14,7 +14,7 @@ const App = () => {
             <Routes>
                 <Route path={`${PUBLIC_URL}/`} element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="/order" element={<Order />} />
+                    <Route path={`${PUBLIC_URL}/order`} element={<Order />} />
                 </Route>
             </Routes>
 
