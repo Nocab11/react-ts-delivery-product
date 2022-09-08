@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-ts-delivery-product/static/css/main.382ab306.css",
-    "main.js": "/react-ts-delivery-product/static/js/main.cca29107.js",
-    "index.html": "/react-ts-delivery-product/index.html",
-    "static/media/increase.svg": "/react-ts-delivery-product/static/media/increase.402b161397f8690d3d6c7a6fb788608c.svg",
-    "static/media/decrease.svg": "/react-ts-delivery-product/static/media/decrease.cbf1b2f21ceb03630d56168b208bfab4.svg",
-    "main.382ab306.css.map": "/react-ts-delivery-product/static/css/main.382ab306.css.map",
-    "main.cca29107.js.map": "/react-ts-delivery-product/static/js/main.cca29107.js.map"
+    "main.css": "./static/css/main.382ab306.css",
+    "main.js": "./static/js/main.cbb49c27.js",
+    "index.html": "./index.html",
+    "static/media/increase.svg": "./static/media/increase.402b161397f8690d3d6c7a6fb788608c.svg",
+    "static/media/decrease.svg": "./static/media/decrease.cbf1b2f21ceb03630d56168b208bfab4.svg",
+    "main.382ab306.css.map": "./static/css/main.382ab306.css.map",
+    "main.cbb49c27.js.map": "./static/js/main.cbb49c27.js.map"
   },
   "entrypoints": [
     "static/css/main.382ab306.css",
-    "static/js/main.cca29107.js"
+    "static/js/main.cbb49c27.js"
   ]
 }
